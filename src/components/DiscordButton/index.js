@@ -15,6 +15,7 @@ const DiscordButton = styled.button`
   transition: all 50ms ease-in-out;
   box-shadow: 0 0 0 var(--color-white-light);
   text-decoration: none;
+  color: var(--color-white);
 
   &::before {
     content: url(${discord});
