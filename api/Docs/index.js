@@ -11,7 +11,7 @@ module.exports = async function (context, req) {
       body: {
         tagName: "MarcoBrunoDev#2342",
         name: "MarcoBrunoDev",
-        discordApiUrl: DISCORD_API_URL
+        discordApiUrl: DISCORD_API_URL || "bad"
       }
     }]
   }
