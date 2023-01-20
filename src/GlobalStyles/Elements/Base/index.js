@@ -9,6 +9,7 @@ const Base = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-weight: lighter;
     color: var(--color-white);
+    min-width: 320px;
   }
 `
 

@@ -7,10 +7,12 @@ const Colors = createGlobalStyle`
     --color-black-third: #707070;
 
     --color-white: #fff;
+    --color-white-light: rgba(255, 255, 255, 0.2);
     
     --color-first: #5662F6;
-    --color-second: #FF9224;
-    --color-second-light: #FF922447;
+
+    --color-warning: #FF9224;
+    --color-warning-light: #FF922447;
   }
 `
 

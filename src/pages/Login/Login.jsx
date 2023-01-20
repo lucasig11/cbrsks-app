@@ -1,4 +1,5 @@
 import DiscordButton from "../../components/DiscordButton"
+import InfoBox from "../../components/InfoBox"
 import Logo from "../../components/Logo"
 import Text from "../../components/Text"
 import S from './Login.styles'
@@ -13,6 +14,11 @@ const Login = () => (
     </S.WrapperText>
 
     <DiscordButton>Sign in with Discord</DiscordButton>
+
+    <InfoBox 
+      title="During Closed Alpha, you may face some bugs." 
+      info="We appreciate your feedback."
+    />
   </S.Login>
 )
 
