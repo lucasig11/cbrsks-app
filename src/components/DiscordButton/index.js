@@ -18,6 +18,9 @@ const DiscordButton = styled.button`
   &::before {
     content: url(${discord});
     width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &:hover {
