@@ -1,10 +1,11 @@
+import { string } from "prop-types"
 import DiscordButton from "../../components/DiscordButton"
 import InfoBox from "../../components/InfoBox"
 import Logo from "../../components/Logo"
 import Text from "../../components/Text"
 import S from './Login.styles'
 
-const Login = () => (
+const Login = ({urlOAuthDiscord}) => (
   <S.Login>
     <Logo />
 
@@ -13,7 +14,7 @@ const Login = () => (
       <Text light>Closed Alpha</Text>
     </S.WrapperText>
 
-    <DiscordButton>Sign in with Discord</DiscordButton>
+    <DiscordButton as="a" href={urlOAuthDiscord}>Sign in with Discord</DiscordButton>
 
     <InfoBox 
       title="During Closed Alpha, you may face some bugs." 
@@ -21,5 +22,9 @@ const Login = () => (
     />
   </S.Login>
 )
+
+Login.propTypes = {
+  urlOAuthDiscord: string.isRequired
+}
 
 export default Login

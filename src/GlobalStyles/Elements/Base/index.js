@@ -10,6 +10,7 @@ const Base = createGlobalStyle`
     font-weight: lighter;
     color: var(--color-white);
     min-width: 320px;
+    background-color: var(--color-black-first);
   }
 `
 
