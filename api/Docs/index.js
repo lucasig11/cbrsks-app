@@ -1,3 +1,5 @@
+const {DISCORD_API_URL} = process.env
+
 module.exports = async function (context, req) {
   return {
     status: 200,
@@ -8,7 +10,8 @@ module.exports = async function (context, req) {
       description: "Return current user",
       body: {
         tagName: "MarcoBrunoDev#2342",
-        name: "MarcoBrunoDev"
+        name: "MarcoBrunoDev",
+        discordApiUrl: DISCORD_API_URL
       }
     }]
   }
