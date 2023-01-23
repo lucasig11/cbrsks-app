@@ -1,8 +1,17 @@
+import {Unity} from 'react-unity-webgl'
 import S from './Game.styles'
 
-const Game = () => (
+const Game = ({unityProvider}) => (
   <S.Game>
-    <h1>Game</h1>
+    <S.Stage>
+      <Unity
+        style={{
+          width: 896,
+          height: 504
+        }}
+        unityProvider={unityProvider}
+      />
+    </S.Stage>
   </S.Game>
 )
 
