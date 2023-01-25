@@ -8,6 +8,7 @@ const useGame = () => {
     dataUrl: `${VITE_URL_ASSETS_GAME}/cys.data.br`,
     frameworkUrl: `${VITE_URL_ASSETS_GAME}/cys.framework.js.br`,
     codeUrl: `${VITE_URL_ASSETS_GAME}/cys.wasm.br`,
+    streamingAssetsUrl: `${VITE_URL_ASSETS_GAME}/../StreamingAssets`,
   });
 
   return {
