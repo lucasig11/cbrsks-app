@@ -1,7 +1,8 @@
 import {Unity} from 'react-unity-webgl'
+import FullscreenButton from '../../components/FullscreenButton'
 import S from './Game.styles'
 
-const Game = ({unityProvider}) => (
+const Game = ({unityProvider, goFullscreen}) => (
   <S.Game>
     <S.Stage>
       <Unity
@@ -12,6 +13,8 @@ const Game = ({unityProvider}) => (
         unityProvider={unityProvider}
       />
     </S.Stage>
+
+    <FullscreenButton onClick={goFullscreen}>Fullscreen</FullscreenButton>
   </S.Game>
 )
 
