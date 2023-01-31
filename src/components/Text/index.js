@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 const hasLight = ({light}) => light && css`
-  color: var(--color-black-third);
+  color: var(--color-black-fourth);
 `
 
 const Text = styled.p`
