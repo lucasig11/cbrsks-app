@@ -19,9 +19,10 @@ const Game = ({unityProvider, goFullscreen}) => (
         }}
         unityProvider={unityProvider}
       />
+      
+      <FullscreenButton onClick={goFullscreen} />
     </S.Stage>
 
-    <FullscreenButton onClick={goFullscreen}>Fullscreen</FullscreenButton>
   </S.Game>
 )
 

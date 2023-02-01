@@ -1,8 +1,15 @@
 import styled from "styled-components"
+import FullscreenButton from "../../components/FullscreenButton"
 
 const Stage = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
+  gap: var(--gap-small);
+
+  & > ${FullscreenButton} {
+    align-self: flex-end;
+  }
 `
 
 const Game = styled.main`
