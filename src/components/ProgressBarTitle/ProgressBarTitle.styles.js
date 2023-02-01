@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components'
 
-const Title = styled.dt`
+const Title = styled.h1`
   padding-left: 0.2rem;
 `
 
-const Value = styled.dd``
+const Value = styled.p``
 
 const Content = styled.dd`
   display: flex;

@@ -1,9 +1,10 @@
 import {Unity} from 'react-unity-webgl'
 import FullscreenButton from '../../components/FullscreenButton'
+import Loading from '../../layouts/Loading'
 import Quest from '../../layouts/Quest'
 import S from './Game.styles'
 
-const Game = ({unityProvider, goFullscreen}) => (
+const Game = ({unityProvider, goFullscreen, isLoaded, loadingProgression}) => (
   <S.Game>
     <Quest 
       title="Reach 2084 points" 
@@ -12,6 +13,7 @@ const Game = ({unityProvider, goFullscreen}) => (
       labelAction="Claim first class WL"
     />
     <S.Stage>
+      <Loading isLoaded={isLoaded} loadingProgression={loadingProgression} />
       <Unity
         style={{
           width: 1040,

@@ -3,7 +3,7 @@ import {useUnityContext} from 'react-unity-webgl'
 const {VITE_URL_ASSETS_GAME} = import.meta.env
 
 const useGame = () => {
-  const { unityProvider, isLoaded, requestFullscreen } = useUnityContext({
+  const { unityProvider, requestFullscreen, isLoaded, loadingProgression } = useUnityContext({
     loaderUrl: `${VITE_URL_ASSETS_GAME}/cys.loader.js`,
     dataUrl: `${VITE_URL_ASSETS_GAME}/cys.data.br`,
     frameworkUrl: `${VITE_URL_ASSETS_GAME}/cys.framework.js.br`,
@@ -17,7 +17,9 @@ const useGame = () => {
 
   return {
     unityProvider,
-    goFullscreen
+    goFullscreen, 
+    isLoaded,
+    loadingProgression
   }
 }
 

@@ -2,7 +2,12 @@ import Game from "./Game";
 import useGame from "./useGame";
 
 export default () => {
-  const {unityProvider, goFullscreen} = useGame()
+  const {unityProvider, goFullscreen, isLoaded, loadingProgression} = useGame()
 
-  return <Game unityProvider={unityProvider} goFullscreen={goFullscreen} />
+  return <Game 
+          unityProvider={unityProvider} 
+          goFullscreen={goFullscreen} 
+          isLoaded={isLoaded} 
+          loadingProgression={loadingProgression} 
+        />
 }
