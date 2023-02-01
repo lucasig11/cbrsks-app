@@ -9,7 +9,7 @@ const Quest = styled.div`
   gap: var(--gap-bigger);
 
   & > ${Button} {
-    width: 360px;
+    width: 405px;
     box-sizing: border-box;
   }
 `
