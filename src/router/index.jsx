@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../pages/Login"
 import Game from "../pages/Game";
+import RequiredAuth from "../layouts/RequiredAuth";
+import loaderRequireAuth from "../layouts/RequiredAuth/loaderRequiredAuth";
 
 const router = createBrowserRouter([{
   path: '/',
@@ -8,7 +10,12 @@ const router = createBrowserRouter([{
 },
 {
   path: '/game',
-  element: <Game />
+  loader: loaderRequireAuth,
+  element: (
+    <RequiredAuth>
+      <Game />
+    </RequiredAuth>
+  )
 }])
 
 export default router

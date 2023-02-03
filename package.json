@@ -16,8 +16,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.7.0",
     "react-unity-webgl": "^9.4.0",
-    "styled-components": "^5.3.6",
-    "undici": "^5.15.1"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
