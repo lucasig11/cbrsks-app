@@ -3,19 +3,35 @@ import Login from "../pages/Login"
 import Game from "../pages/Game";
 import RequiredAuth from "../layouts/RequiredAuth";
 import loaderRequireAuth from "../layouts/RequiredAuth/loaderRequiredAuth";
+import Admin from "../pages/Admin/Admin";
+import Dashboard from "../pages/Admin";
 
-const router = createBrowserRouter([{
-  path: '/',
-  element: <Login />
-},
-{
-  path: '/game',
-  loader: loaderRequireAuth,
-  element: (
-    <RequiredAuth>
-      <Game />
-    </RequiredAuth>
-  )
-}])
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <Login />
+    },
+    {
+      path: 'game',
+      loader: loaderRequireAuth,
+      element: (
+        <RequiredAuth>
+          <Game />
+        </RequiredAuth>
+      )
+    },
+    {
+      path: 'admin',
+      element: <Admin />,
+    },
+    {
+      path: 'admin/dashboard',
+      element: (
+        <Dashboard />
+      )
+    }
+  ]
+)
 
 export default router
