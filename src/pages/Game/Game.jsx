@@ -7,8 +7,8 @@ import S from './Game.styles'
 const Game = ({unityProvider, goFullscreen, isLoaded, loadingProgression}) => (
   <S.Game>
     <Quest 
-      title="Reach 2084 points" 
-      completed={50} 
+      title="Coming soon" 
+      completed={2084} 
       total={2084} 
       labelAction="Claim first class WL"
     />
