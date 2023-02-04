@@ -5,6 +5,7 @@ import RequiredAuth from "../layouts/RequiredAuth";
 import loaderRequireAuth from "../layouts/RequiredAuth/loaderRequiredAuth";
 import Admin from "../pages/Admin/Admin";
 import Dashboard from "../pages/Admin";
+import loaderRequireAuthAdmin from "../layouts/RequiredAuth/loaderRequiredAuthAdmin";
 
 const router = createBrowserRouter(
   [
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
     },
     {
       path: 'admin/dashboard',
+      loader: loaderRequireAuthAdmin,
       element: (
         <Dashboard />
       )
