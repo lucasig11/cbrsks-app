@@ -6,12 +6,7 @@ import S from './Game.styles'
 
 const Game = ({unityProvider, goFullscreen, isLoaded, loadingProgression}) => (
   <S.Game>
-    <Quest 
-      title="Coming soon" 
-      completed={2084} 
-      total={2084} 
-      labelAction="Claim first class WL"
-    />
+    <Quest />
     <S.Stage>
       <Loading isLoaded={isLoaded} loadingProgression={loadingProgression} />
       <Unity
