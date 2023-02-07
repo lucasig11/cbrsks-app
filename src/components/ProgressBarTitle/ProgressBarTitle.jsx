@@ -10,7 +10,7 @@ const calcPorcentage = (completed, total, countdown) => {
     return `${( porcentage >= 100 ? 100 : porcentage).toFixed(2)}%`
   }
 
-  return '..%'
+  return '0%'
 }
 
 const ProgressBarTitle = ({title, completed, total = 100, countdown}) => (
