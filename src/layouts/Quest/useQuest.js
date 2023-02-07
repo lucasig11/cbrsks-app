@@ -11,11 +11,13 @@ const useQuest = () => {
     startDate: 0
   })
   const [active, setActive] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
 
   useEffect(() => {
     const getActive = async () => {
       try {
         const questApi = await service.getActive()
+        const completed = await service.getPoints()
         const {comingSoonDate = false} = questApi
 
         if (comingSoonDate) {
@@ -23,7 +25,7 @@ const useQuest = () => {
           setQuest({title: labels.bar, labelAction: labels.button, comingSoonDate, startDate, countdown: '--:--:--'})
         } else {
           const {labels: {bar: title, button: labelAction}, goal: total} = questApi
-          setQuest({title, labelAction, total})
+          setQuest({title, labelAction, total, completed})
         }
         setActive(true)
       } catch(error) {
@@ -35,21 +37,38 @@ const useQuest = () => {
   }, [])
 
   useEffect(() => {
-    
     if (!!quest.comingSoonDate) {
-      
       const time = setTimeout(() => {
         const countdown = calcTimeLeft(quest.startDate)
         setQuest({...quest, countdown})
-      },)
+      }, 1000)
 
       return () => clearTimeout(time)
     }
   }, [quest])
 
+  const handleClick = async () => {
+    try {
+      setQuest((old) => ({...old, labelAction: 'Processing...'}))
+      await service.prize()
+      setOpenModal(true)
+    } catch(error) {
+      const {labels: {button: labelAction}} = await service.getActive()
+      setQuest((old) => ({...old, labelAction: labelAction}))
+      return false
+    } finally {
+      setQuest((old) => ({...old, labelAction: `You're Skylisted!`}))
+    }
+  }
+
+  const closeModal = () => setOpenModal(false)
+
   return {
     quest,
-    active
+    active,
+    handleClick,
+    openModal,
+    closeModal
   }
 }
 

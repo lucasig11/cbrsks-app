@@ -16,7 +16,7 @@ const Content = styled.dd`
 
 const hasFill = ({fill}) => fill && css`
   &::before {
-    transform: scaleX(${fill});
+    transform: scaleX(${fill > 1 ? 1 : fill});
   }
 `
 

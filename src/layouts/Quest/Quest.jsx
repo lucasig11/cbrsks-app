@@ -4,7 +4,8 @@ import ProgressBarTitle from '../../components/ProgressBarTitle'
 import ComingSoon from './ComingSoon'
 import S from './Quest.styles'
 
-const Quest = ({title="Loading..", total=0, completed=0, labelAction="Loading...", active=false, countdown = false}) => {
+const Quest = ({title="Loading..", total=0, completed=0, labelAction="Loading...", active=false, countdown = false, handleClick}) => {
+  const activeButton = completed >= total
   if (countdown) {
     return (
       <ComingSoon title={title} labelAction={labelAction} countdown={countdown} active={active} />
@@ -13,7 +14,7 @@ const Quest = ({title="Loading..", total=0, completed=0, labelAction="Loading...
   return (
     <S.Quest active={active}>
       <ProgressBarTitle title={title} completed={completed} total={total} />
-      <Button>{labelAction}</Button>
+      <Button onClick={activeButton && handleClick} active={activeButton}>{labelAction}</Button>
     </S.Quest>
   )
 }

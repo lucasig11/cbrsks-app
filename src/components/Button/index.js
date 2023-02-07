@@ -1,9 +1,20 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import lock from '../../assets/images/secured-lock.png'
 
 const hasActive = ({active}) => active && css`
   background-color: var(--color-second);
   color: var(--color-white);
+  cursor: pointer;
+  transition: transform 100ms ease-in-out;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px var(--color-white-light);
+  }
+
+  &::before {
+    content: '';
+  }
 `
 
 const Button = styled.button`
@@ -17,6 +28,8 @@ const Button = styled.button`
   letter-spacing: 0.218rem;
   text-transform: uppercase;
   gap: calc(var(--gap-smaller) / 2);
+  box-shadow: 0 0 0 var(--color-white-light);
+  text-decoration: none;
 
   &::before {
     content: url(${lock});

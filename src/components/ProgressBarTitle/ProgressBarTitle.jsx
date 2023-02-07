@@ -6,7 +6,8 @@ const calcPorcentage = (completed, total, countdown) => {
   }
 
   if (completed && total) {
-    return `${((completed/total)*100).toFixed(2)}%`
+    const porcentage = (completed/total)*100
+    return `${( porcentage >= 100 ? 100 : porcentage).toFixed(2)}%`
   }
 
   return '..%'

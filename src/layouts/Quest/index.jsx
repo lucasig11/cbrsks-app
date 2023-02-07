@@ -1,8 +1,12 @@
+import Modal from "./Modal";
 import Quest from "./Quest";
 import useQuest from "./useQuest";
 
 export default () => {
-  const {quest, active} = useQuest()
+  const {quest, active, handleClick, openModal, closeModal} = useQuest()
 
-  return <Quest {...quest} active={active} />
+  return <>
+    <Quest {...quest} active={active} handleClick={handleClick} openModal={openModal} />
+    <Modal active={openModal} closeModal={closeModal} />
+  </>
 }

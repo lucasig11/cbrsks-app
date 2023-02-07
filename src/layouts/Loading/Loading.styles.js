@@ -12,7 +12,7 @@ const Bar = styled.div`
     width: 100%;
     height: 100%;
     background-color: var(--color-white);
-
+    will-change: transform;
     transform-origin: left center;
     transform: scaleX(${({loadingProgression}) => loadingProgression});
   }
