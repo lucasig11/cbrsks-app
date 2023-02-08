@@ -28,13 +28,23 @@ const useQuest = () => {
         const completed = await service.getPoints()
         const {comingSoonDate = false} = questApi
 
+        const hasPrize = await service.check()
+
+        if (hasPrize) {
+          const {labels: {bar: title}, goalLabels: {button: labelAction}, goal: total} = questApi
+          setQuest({title, labelAction, total, completed: total, buttonDisabled: true})
+          setActive(true)
+          return false;
+        }
+
         if (comingSoonDate) {
           const {labels, startDate} = questApi
-          setQuest({title: labels.bar, labelAction: labels.button, comingSoonDate, startDate, countdown: '--:--:--'})
+          setQuest({title: labels.bar, labelAction: labels.button, comingSoonDate, startDate, countdown: '--:--:--', buttonDisabled: true})
         } else {
           const {labels: {bar: title, button: labelAction}, goal: total} = questApi
           setQuest({title, labelAction, total, completed})
         }
+
         setActive(true)
       } catch(error) {
         setActive(false)
