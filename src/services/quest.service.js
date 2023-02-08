@@ -40,7 +40,21 @@ const quest = {
     } catch(error) {
       return false
     }
-  }
+  },
+  check: async () => {
+    const url = '/api/quest/prize'
+
+    try {
+      const response = await fetch(url)
+      const {status} = await response.json()
+
+      if (status !== 200) throw new Error(`Doesn't have an active quest`)
+
+      return status === 200
+    } catch(error) {
+      return false
+    }
+  } 
 }
 
 export default quest

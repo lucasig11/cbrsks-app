@@ -4,7 +4,7 @@ import Loading from '../../layouts/Loading'
 import Quest from '../../layouts/Quest'
 import S from './Game.styles'
 
-const Game = ({unityProvider, goFullscreen, isLoaded, loadingProgression}) => (
+const Game = ({unityProvider, goFullscreen, isLoaded, loadingProgression }) => (
   <S.Game>
     <Quest />
     <S.Stage>

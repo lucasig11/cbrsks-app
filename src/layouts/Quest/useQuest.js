@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import service from "../../services/quest.service"
 import calcTimeLeft from "../../utils/calcTimeLeft"
+import useGameContext from '../../pages/Game/GameContext/useGameContext'
 
 const useQuest = () => {
+  const gameContext = useGameContext()
   const [quest, setQuest] = useState({
     title:"Loading..", 
     total:0, 
@@ -12,6 +14,12 @@ const useQuest = () => {
   })
   const [active, setActive] = useState(false)
   const [openModal, setOpenModal] = useState(false)
+
+  useEffect(() => {
+    if (!gameContext?.questCompleted !== undefined) {
+      setQuest((old) => ({...old, completed: gameContext.questCompleted}))
+    }
+  }, [gameContext?.questCompleted])
 
   useEffect(() => {
     const getActive = async () => {
