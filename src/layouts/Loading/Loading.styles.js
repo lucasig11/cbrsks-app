@@ -18,6 +18,11 @@ const Bar = styled.div`
   }
 `
 
+const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
 const Text = styled.h1`
   font-family: 'Reality Hyper', sans-serif;
   font-size: 3rem;
@@ -45,6 +50,7 @@ const Loading = styled.article`
 
 export default {
   Loading,
+  Content,
   Text,
   Bar
 }
