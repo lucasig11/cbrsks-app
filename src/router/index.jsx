@@ -6,12 +6,17 @@ import loaderRequireAuth from "../layouts/RequiredAuth/loaderRequiredAuth";
 import Admin from "../pages/Admin/Admin";
 import Dashboard from "../pages/Admin";
 import loaderRequireAuthAdmin from "../layouts/RequiredAuth/loaderRequiredAuthAdmin";
+import EnterGuild from "../pages/EnterGuild";
 
 const router = createBrowserRouter(
   [
     {
       path: '/',
       element: <Login />
+    },
+    {
+      path: '/guild',
+      element: <EnterGuild />
     },
     {
       path: 'game',
