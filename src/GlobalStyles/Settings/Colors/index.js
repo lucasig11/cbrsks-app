@@ -12,6 +12,7 @@ const Colors = createGlobalStyle`
 
     --color-white: #fff;
     --color-white-light: rgba(255, 255, 255, 0.2);
+    --color-white-second: #CFCFCF;
     
     --color-first: #5662F6;
     --color-second: #F65F10;

@@ -14,7 +14,9 @@ const Login = ({urlOAuthDiscord}) => (
       <Text light>Closed Alpha</Text>
     </S.WrapperText>
 
-    <DiscordButton as="a" href={urlOAuthDiscord}>Sign in with Discord</DiscordButton>
+    <DiscordButton as="a" href={urlOAuthDiscord}>
+      Sign in with Discord
+    </DiscordButton>
 
     <InfoBox 
       title="During Closed Alpha, you may face some bugs." 

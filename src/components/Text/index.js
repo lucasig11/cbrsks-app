@@ -10,6 +10,11 @@ const Text = styled.p`
   margin-bottom: var(--gap-smaller);
 
   ${hasLight};
+
+  & > strong {
+    font-size: 3.5rem;
+    font-weight: bold;
+  }
 `
 
 export default Text

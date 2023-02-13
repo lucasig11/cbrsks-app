@@ -16,12 +16,7 @@ const router = createBrowserRouter(
     },
     {
       path: '/guild',
-      loader: loaderRequireAuth,
-      element: (
-        <RequiredAuth>
-          <Game />
-        </RequiredAuth>
-      )
+      element: <EnterGuild />
     },
     {
       path: 'game',
