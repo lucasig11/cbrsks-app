@@ -4,6 +4,7 @@ import Title from '../../components/Title'
 import Text from '../../components/Text'
 import Output from '../../components/Output'
 import Action from '../../components/Action'
+import Icons from '../../components/Icons'
 import S from './EnterGuild.styles'
 
 const {VITE_LINK_DISCORD} = import.meta.env
@@ -20,6 +21,7 @@ const EnterGuild = ({urlOAuthDiscord}) => (
       <Output>$skyracer</Output>
       <Action href={VITE_LINK_DISCORD} line target="_blank">
         Join Cyberskies Discord
+        <Icons.Action />
       </Action>
 
       <Text><strong>2</strong> Join Discord with the password</Text>

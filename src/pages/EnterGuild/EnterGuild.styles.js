@@ -1,9 +1,10 @@
-import styled from "styled-components";
-import Title from "../../components/Title";
-import { InfoBox } from "../../components/InfoBox/InfoBox.styles";
-import Text from "../../components/Text";
-import Output from "../../components/Output";
-import Action from "../../components/Action";
+import styled from "styled-components"
+import Title from "../../components/Title"
+import { InfoBox } from "../../components/InfoBox/InfoBox.styles"
+import Text from "../../components/Text"
+import Output from "../../components/Output"
+import Action from "../../components/Action"
+import Icons from "../../components/Icons"
 
 const FeakForm = styled.div`
   display: flex;
@@ -17,10 +18,18 @@ const FeakForm = styled.div`
   }
 
   & > ${Action} {
-    align-items: flex-start;
     padding-bottom: var(--gap-big);
     margin-bottom: var(--gap-big);
     width: 100%;
+
+    & > ${Icons.Action} {
+      height: 1.4em;
+      transition: transform 200ms ease-in-out;
+    }
+
+    &:hover > ${Icons.Action} {
+      transform: scale(1.4)
+    }
   }
 `
 
@@ -46,6 +55,8 @@ const EnterGuild = styled.main`
     margin-top: auto;
     margin-bottom: var(--gap-bigger);
   }
+
+  
 `
 
 export default {

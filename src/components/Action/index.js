@@ -16,8 +16,8 @@ const hasLine = ({line}) => line && css`
 const Action = styled.a`
   position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   color: var(--color-second);
   font-size: 1.7rem;
   font-weight: bold;
