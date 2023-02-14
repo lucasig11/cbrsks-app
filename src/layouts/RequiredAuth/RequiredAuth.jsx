@@ -1,10 +1,12 @@
 import { Navigate, useLoaderData, useLocation } from 'react-router-dom'
 
 const RequiredAuth = ({ children }) => {
-  const discord = useLoaderData()
+  const user = useLoaderData()
   const location = useLocation()
 
-  return  discord.authorized ? children : <Navigate to="/" state={{ from: location }} replace />
+  console.log('user', user)
+
+  return  user.authorized && user.isGuild ? children : <Navigate to="/" state={{ from: location }} replace />
 }
 
 export default RequiredAuth

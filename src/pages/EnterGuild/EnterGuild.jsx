@@ -27,7 +27,7 @@ const EnterGuild = ({urlOAuthDiscord}) => (
       </Action>
 
       <Text><strong>2</strong> Join Discord with the password</Text>
-      <DiscordButton as="a" href={urlOAuthDiscord}>
+      <DiscordButton as="a" href="/game">
         Sign in with Discord
       </DiscordButton>
     </S.FeakForm>
