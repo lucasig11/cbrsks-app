@@ -20,7 +20,22 @@ const user = {
       const response = await fetch(url)
       const data = await response.json()
 
-      console.log('data', data)
+      if (!data.check) throw new Error('Invalid token')
+
+      return true
+    } catch (error) {
+      return false
+    }
+  },
+  addRolePassword: async () => {
+    const url = '/api/user/role/password'
+
+    try {
+      const headers = {
+        method: 'POST'
+      }
+      const response = await fetch(url, headers)
+      const data = await response.json()
 
       if (!data.check) throw new Error('Invalid token')
 

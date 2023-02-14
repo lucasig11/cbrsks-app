@@ -4,8 +4,6 @@ const RequiredAuth = ({ children }) => {
   const user = useLoaderData()
   const location = useLocation()
 
-  console.log('user', user)
-
   return  user.authorized && user.isGuild ? children : <Navigate to="/" state={{ from: location }} replace />
 }
 

@@ -7,6 +7,7 @@ import Admin from "../pages/Admin/Admin";
 import Dashboard from "../pages/Admin";
 import loaderRequireAuthAdmin from "../layouts/RequiredAuth/loaderRequiredAuthAdmin";
 import EnterGuild from "../pages/EnterGuild";
+import RequiredAuthWithoutIsGuild from "../layouts/RequiredAuth/RequiredAuthWithoutIsGuild";
 
 const router = createBrowserRouter(
   [
@@ -16,7 +17,12 @@ const router = createBrowserRouter(
     },
     {
       path: '/guild',
-      element: <EnterGuild />
+      loader: loaderRequireAuth,
+      element: (
+        <RequiredAuthWithoutIsGuild>
+          <EnterGuild />
+        </RequiredAuthWithoutIsGuild>
+      )
     },
     {
       path: 'game',
