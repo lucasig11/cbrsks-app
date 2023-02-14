@@ -18,14 +18,18 @@ const EnterGuild = ({urlOAuthDiscord}) => (
 
     <S.FeakForm>
       <Text><strong>1</strong> Join Discord with the password</Text>
-      <Output>$skyracer</Output>
+      <Output copy>
+        $skyracer
+      </Output>
       <Action href={VITE_LINK_DISCORD} line target="_blank">
         Join Cyberskies Discord
         <Icons.Action />
       </Action>
 
       <Text><strong>2</strong> Join Discord with the password</Text>
-      <DiscordButton as="a" href={urlOAuthDiscord}>Sign in with Discord</DiscordButton>
+      <DiscordButton as="a" href={urlOAuthDiscord}>
+        Sign in with Discord
+      </DiscordButton>
     </S.FeakForm>
 
     <InfoBox 

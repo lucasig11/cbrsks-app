@@ -2,7 +2,7 @@ import styled from "styled-components"
 import Title from "../../components/Title"
 import { InfoBox } from "../../components/InfoBox/InfoBox.styles"
 import Text from "../../components/Text"
-import Output from "../../components/Output"
+import {Output} from "../../components/Output/Output.styles"
 import Action from "../../components/Action"
 import Icons from "../../components/Icons"
 
@@ -10,6 +10,10 @@ const FeakForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  & > ${Text} {
+    margin-bottom: var(--gap-big);
+  }
 
   & > ${Output} {
     box-sizing: border-box;
@@ -28,7 +32,7 @@ const FeakForm = styled.div`
     }
 
     &:hover > ${Icons.Action} {
-      transform: scale(1.4)
+      transform: scale(1.4);
     }
   }
 `
@@ -55,8 +59,6 @@ const EnterGuild = styled.main`
     margin-top: auto;
     margin-bottom: var(--gap-bigger);
   }
-
-  
 `
 
 export default {
