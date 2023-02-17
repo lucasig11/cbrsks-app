@@ -26,7 +26,7 @@ const EnterGuild = ({urlOAuthDiscord}) => (
         <Icons.Action />
       </Action>
 
-      <Text><strong>2</strong> Join Discord with the password</Text>
+      <Text><strong>2</strong> Access game features</Text>
       <DiscordButton as="a" href="/game">
         Sign in with Discord
       </DiscordButton>
