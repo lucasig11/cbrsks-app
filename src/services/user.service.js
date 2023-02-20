@@ -43,6 +43,18 @@ const user = {
     } catch (error) {
       return false
     }
+  },
+  getUserCollections: async () => {
+    try {
+      const url = '/api/user/collections'
+  
+      const response = await fetch(url)
+      const data = await response.json()
+  
+      return data
+    } catch(error) {
+      return false
+    }
   }
 }
 

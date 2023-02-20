@@ -15,6 +15,11 @@ const Text = styled.p`
     font-size: 3.5rem;
     font-weight: bold;
   }
+
+  & > .hightlight {
+    background-color: var(--color-second);
+    color: var(--color-white);
+  }
 `
 
 export default Text
