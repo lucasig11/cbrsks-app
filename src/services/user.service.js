@@ -20,8 +20,6 @@ const user = {
       const response = await fetch(url)
       const data = await response.json()
 
-      console.log('data checkOnGuild', data)
-
       if (!data.check) throw new Error('Invalid token')
 
       return true
