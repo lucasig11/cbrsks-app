@@ -4,8 +4,8 @@ import Button from '../../components/Button'
 import Select from '../../components/Select'
 import S from './SelectCollection.styles'
 
-const SelectCollection = ({collections}) => (
-  <S.SelectCollection>
+const SelectCollection = ({collections, saveCollection, active}) => (
+  <S.SelectCollection active={active}>
     <Title orange bigger>
       Join the competition
     </Title>
@@ -20,7 +20,7 @@ const SelectCollection = ({collections}) => (
     <S.FakeForm>
       <Select options={collections} />
 
-      <Button active={true}>
+      <Button active={true} onClick={saveCollection}>
         Select
       </Button>
     </S.FakeForm>

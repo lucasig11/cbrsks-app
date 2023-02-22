@@ -55,6 +55,34 @@ const user = {
     } catch(error) {
       return false
     }
+  },
+  saveUserCollection: async (collection) => {
+    try {
+      const url = '/api/user/collection'
+
+      const response = await fetch(url, { method: 'POST', body: JSON.stringify({collection})})
+      const data = await response.json()
+
+      if (!data) throw new Error(`Doesn't have data`)
+
+      return true
+    } catch(error) {
+      return false
+    }
+  },
+  checkUserCollection: async () => {
+    try {
+      const url = '/api/user/collection/selected'
+  
+      const response = await fetch(url)
+      const data = await response.json()
+  
+      if (!data) throw new Error(`Doesn't have data`)
+  
+      return data
+    } catch(error) {
+      return false
+    }
   }
 }
 

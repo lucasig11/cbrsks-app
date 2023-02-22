@@ -3,11 +3,11 @@ import SelectCollectionContext from './SelectCollectionContext/SelectCollectionC
 import useSelectCollection from './useSelectCollection'
 
 export default () => {
-  const {collections, collectionSelected, setCollectionContext} = useSelectCollection()
+  const {collections, collectionSelected, setCollectionContext, saveCollection, active} = useSelectCollection()
 
   return (
     <SelectCollectionContext.Provider value={{collectionSelected, setCollectionContext}}>
-      <SelectCollection collections={collections} />
+      <SelectCollection  active={active} collections={collections} saveCollection={saveCollection} />
     </SelectCollectionContext.Provider>
   )
 }

@@ -20,6 +20,8 @@ const Game = ({unityProvider, goFullscreen, isLoaded, loadingProgression }) => (
       
       <FullscreenButton onClick={goFullscreen} />
     </S.Stage>
+
+    <SelectCollection />
   </S.Game>
 )
 
