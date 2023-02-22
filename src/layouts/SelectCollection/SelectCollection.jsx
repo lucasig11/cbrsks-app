@@ -10,7 +10,7 @@ const SelectCollection = ({collections, saveCollection, active}) => (
       Join the competition
     </Title>
     <Title as="h2" orange>
-      Join the competition
+      Defend your community by selecting it
     </Title>
 
     <Text>
