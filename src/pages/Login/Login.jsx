@@ -11,8 +11,8 @@ function Login({ urlOAuthDiscord }) {
       <Logo />
 
       <S.WrapperText>
-        <Text>SkyRacers: High-Speed & Low-Mercy</Text>
-        <Text light>Closed Alpha</Text>
+        <Text>Grizzlython</Text>
+        <Text light>Solana Hackathon</Text>
       </S.WrapperText>
 
       <DiscordButton as="a" href={urlOAuthDiscord}>
