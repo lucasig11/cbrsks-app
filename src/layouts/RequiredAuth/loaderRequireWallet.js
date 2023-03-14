@@ -3,11 +3,9 @@ import { useWallet } from "@solana/wallet-adapter-react";
 const loaderRequireWallet = () => {
   const wallet = useWallet();
 
-  if (!wallet.connected) {
-    throw new Error("Wallet not connected");
-  }
-
-  return wallet.publicKey;
+  return {
+    wallet: wallet.publicKey
+  };
 }
 
 export default loaderRequireWallet;

@@ -30,7 +30,9 @@ const router = createBrowserRouter(
       path: '/wallet',
       loader: loaderRequireWallet,
       element: (
+        <RequiredAuthWithoutIsGuild>
           <ConnectWallet />
+        </RequiredAuthWithoutIsGuild>
       )
     },
     {
