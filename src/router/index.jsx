@@ -6,8 +6,10 @@ import loaderRequireAuth from "../layouts/RequiredAuth/loaderRequiredAuth";
 import Admin from "../pages/Admin/Admin";
 import Dashboard from "../pages/Admin";
 import loaderRequireAuthAdmin from "../layouts/RequiredAuth/loaderRequiredAuthAdmin";
+import loaderRequireWallet from "../layouts/RequiredAuth/loaderRequireWallet";
 import EnterGuild from "../pages/EnterGuild";
 import RequiredAuthWithoutIsGuild from "../layouts/RequiredAuth/RequiredAuthWithoutIsGuild";
+import ConnectWallet from "../pages/ConnectWallet";
 
 const router = createBrowserRouter(
   [
@@ -22,6 +24,13 @@ const router = createBrowserRouter(
         <RequiredAuthWithoutIsGuild>
           <EnterGuild />
         </RequiredAuthWithoutIsGuild>
+      )
+    },
+    {
+      path: '/wallet',
+      loader: loaderRequireWallet,
+      element: (
+          <ConnectWallet />
       )
     },
     {

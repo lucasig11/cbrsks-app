@@ -12,6 +12,10 @@ const RequiredAuth = ({ children }) => {
     return <Navigate to="/guild" state={{ from: location }} replace />
   }
 
+  if (user.authorized && !user.wallet) {
+    return <Navigate to="/wallet" state={{ from: location }} replace />
+  }
+
   return children
 
 } 
