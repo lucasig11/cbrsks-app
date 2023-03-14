@@ -1,10 +1,10 @@
-import styled, {css} from "styled-components"
-import Icons from "../Icons"
+import styled, { css } from "styled-components";
+import Icons from "../Icons";
 
-const hasActive = ({active}) => active && css`
+const hasActive = ({ active }) => active && css`
   transform: translateY(120%) scale(1);
   opacity: 1;
-`
+`;
 
 const Tooltip = styled.figcaption`
   display: flex;
@@ -30,7 +30,7 @@ const Tooltip = styled.figcaption`
   }
 
   ${hasActive}
-` 
+`;
 
 const WrapperIcon = styled.figure`
   display: flex;
@@ -52,7 +52,7 @@ const WrapperIcon = styled.figure`
       transform: scale(1);
     }
   }
-`
+`;
 
 export const Output = styled.output`
   display: flex;
@@ -63,10 +63,10 @@ export const Output = styled.output`
   padding: 1.8rem 3.4rem;
   color: var(--color-black-first);
   font-size: 2rem;
-`
+`;
 
 export default {
   Output,
   WrapperIcon,
-  Tooltip
-}
+  Tooltip,
+};

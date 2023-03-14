@@ -1,10 +1,10 @@
-import { useContext } from "react"
-import GameContext from './GameContex'
+import { useContext } from "react";
+import GameContext from "./GameContex";
 
 const useGameContext = () => {
-  const context = useContext(GameContext)  
-  
-  return context
-}
+  const context = useContext(GameContext);
 
-export default useGameContext
+  return context;
+};
+
+export default useGameContext;

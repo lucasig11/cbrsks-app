@@ -14,24 +14,24 @@ const Bar = styled.div`
     background-color: var(--color-white);
     will-change: transform;
     transform-origin: left center;
-    transform: scaleX(${({loadingProgression}) => loadingProgression});
+    transform: scaleX(${({ loadingProgression }) => loadingProgression});
   }
-`
+`;
 
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
-`
+`;
 
 const Text = styled.h1`
   font-family: 'Reality Hyper', sans-serif;
   font-size: 3rem;
   padding-left: var(--gap-medium);
-`
+`;
 
-const hasIsLoaded = ({isLoaded}) => isLoaded && css`
+const hasIsLoaded = ({ isLoaded }) => isLoaded && css`
   display: none;
-`
+`;
 
 const Loading = styled.article`
   display: flex;
@@ -46,11 +46,11 @@ const Loading = styled.article`
   height: 586px;
   
   ${hasIsLoaded};
-`
+`;
 
 export default {
   Loading,
   Content,
   Text,
-  Bar
-}
+  Bar,
+};

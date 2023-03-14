@@ -1,8 +1,8 @@
-import styled, {css} from 'styled-components'
+import styled, { css } from "styled-components";
 
-const hasActiveOption = ({active}) => active && css`
+const hasActiveOption = ({ active }) => active && css`
   order: -1; 
-`
+`;
 
 const Option = styled.li`
   display: flex;
@@ -24,7 +24,7 @@ const Option = styled.li`
   }
 
   ${hasActiveOption}
-`
+`;
 
 const FakeSelect = styled.ol`
   box-sizing: border-box;
@@ -50,12 +50,12 @@ const FakeSelect = styled.ol`
     opacity: 0;
     transition: opacity 100ms ease-in-out;
   }
-`
+`;
 
 const Scroll = styled.div`
   position: relative;
   height: calc(var(--base-height) * 5);
-`
+`;
 
 const WrapperFakeSelect = styled.div`
   width: 100%;
@@ -63,9 +63,9 @@ const WrapperFakeSelect = styled.div`
   position: absolute;
   overflow: hidden;
   transition: height 100ms ease-in-out;
-`
+`;
 
-const hasActive = ({active}) => active && css`
+const hasActive = ({ active }) => active && css`
   & > ${WrapperFakeSelect} {
     height: calc(var(--base-height) * var(--amount-options));
     transition: none;
@@ -74,23 +74,23 @@ const hasActive = ({active}) => active && css`
   & ${FakeSelect}::before {
     opacity: 0;
   }
-`
+`;
 
-const amountGreaterThan1 = ({amountOptions}) => amountOptions > 1 && css`
+const amountGreaterThan1 = ({ amountOptions }) => amountOptions > 1 && css`
   & ${FakeSelect}::before {
    opacity: 1;
   }
-`
+`;
 
-const acitveScroll = ({active, amountOptions}) => active && amountOptions > 5 && css`
+const acitveScroll = ({ active, amountOptions }) => active && amountOptions > 5 && css`
   & ${Scroll} {
     overflow-y: scroll;
     overflow-x: hidden;
   }
-`
+`;
 
 export const Select = styled.div`
-  --amount-options: ${({amountOptions}) => amountOptions};
+  --amount-options: ${({ amountOptions }) => amountOptions};
   --base-height: 3.8rem;
 
   position: relative;
@@ -100,12 +100,12 @@ export const Select = styled.div`
   ${amountGreaterThan1};
   ${hasActive};
   ${acitveScroll};
-` 
+`;
 
 export default {
   WrapperFakeSelect,
   Scroll,
   FakeSelect,
   Option,
-  Select
-}
+  Select,
+};

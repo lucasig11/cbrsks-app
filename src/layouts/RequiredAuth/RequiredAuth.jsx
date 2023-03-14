@@ -1,19 +1,25 @@
-import { Navigate, useLoaderData, useLocation } from 'react-router-dom'
+import { Navigate, useLoaderData, useLocation } from "react-router-dom";
+import { useWallet } from "@solana/wallet-adapter-react";
 
-const RequiredAuth = ({ children }) => {
-  const user = useLoaderData()
-  const location = useLocation()
+/* eslint-disable react/prop-types */
+function RequiredAuth({ children }) {
+  const user = useLoaderData();
+  const wallet = useWallet();
+  const location = useLocation();
 
   if (!user.authorized) {
-    return <Navigate to='/' state={{ from: location }} replace />
+    return <Navigate to="/" state={{ from: location }} replace />;
   }
 
   if (user.authorized && !user.isGuild) {
-    return <Navigate to="/guild" state={{ from: location }} replace />
+    return <Navigate to="/guild" state={{ from: location }} replace />;
   }
 
-  return children
+  if (user.authorized && !wallet.connected) {
+    return <Navigate to="/wallet" state={{ from: location }} replace />;
+  }
 
-} 
+  return children;
+}
 
-export default RequiredAuth
+export default RequiredAuth;

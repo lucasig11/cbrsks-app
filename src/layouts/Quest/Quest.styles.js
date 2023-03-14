@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components"
-import Button from "../../components/Button"
+import styled, { css } from "styled-components";
+import Button from "../../components/Button";
 
-const hasActive = ({active}) => active && css`
+const hasActive = ({ active }) => active && css`
   transform: translateY(0);
   opacity: 1;
-`
+`;
 
 const Quest = styled.div`
   display: flex;
@@ -22,8 +22,8 @@ const Quest = styled.div`
     width: 405px;
     box-sizing: border-box;
   }
-`
+`;
 
 export default {
-  Quest
-}
+  Quest,
+};

@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
-const hasLight = ({light}) => light && css`
+const hasLight = ({ light }) => light && css`
   color: var(--color-black-fifth);
-`
+`;
 
 const Text = styled.p`
   font-size: 2rem;
@@ -20,6 +20,6 @@ const Text = styled.p`
     background-color: var(--color-second);
     color: var(--color-white);
   }
-`
+`;
 
-export default Text
+export default Text;

@@ -1,5 +1,5 @@
-import useSelect from './useSelect'
-import Select from './Select'
+import useSelect from "./useSelect"
+import Select from "./Select"
 
 export default ({options}) => {
   const {active, handleClick, clickOption, activeOption, handleBlur, scrollRef} = useSelect(options)

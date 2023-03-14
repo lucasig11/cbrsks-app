@@ -1,5 +1,5 @@
-import FactoryOption from './FactoryOption'
-import S from './Select.styles'
+import FactoryOption from "./FactoryOption"
+import S from "./Select.styles"
 
 const Select = ({options, active=false, handleClick, activeOption, clickOption, handleBlur, scrollRef}) => (
   <S.Select

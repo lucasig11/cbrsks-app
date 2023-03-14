@@ -1,11 +1,13 @@
-import Fonts from './Fonts'
-import Reset from './Reset'
+import Fonts from "./Fonts";
+import Reset from "./Reset";
 
-const Generic = () => (
-  <>
-    <Reset />
-    <Fonts />
-  </>
-)
+function Generic() {
+  return (
+    <>
+      <Reset />
+      <Fonts />
+    </>
+  );
+}
 
-export default Generic
+export default Generic;

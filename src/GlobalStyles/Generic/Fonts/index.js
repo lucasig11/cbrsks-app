@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
 const Fonts = createGlobalStyle`
   @font-face {
@@ -13,6 +13,6 @@ const Fonts = createGlobalStyle`
     font-display: swap;
 }
 
-`
+`;
 
-export default Fonts
+export default Fonts;

@@ -1,16 +1,16 @@
 import styled, { css } from "styled-components";
-import lock from '../../assets/images/secured-lock.png'
+import lock from "../../assets/images/secured-lock.png";
 
-const hasDisabled = ({disabled}) => disabled && css`
+const hasDisabled = ({ disabled }) => disabled && css`
   cursor: auto;
   
   &:hover {
     transform: scale(1);
     box-shadow: 0 0 0 var(--color-white-light);
   }
-` 
+`;
 
-const hasActive = ({active}) => active && css`
+const hasActive = ({ active }) => active && css`
   background-color: var(--color-second);
   color: var(--color-white);
   cursor: pointer;
@@ -24,7 +24,7 @@ const hasActive = ({active}) => active && css`
   &::before {
     content: '';
   }
-`
+`;
 
 const Button = styled.button`
   display: flex;
@@ -46,6 +46,6 @@ const Button = styled.button`
 
   ${hasActive};
   ${hasDisabled}
-`
+`;
 
-export default Button
+export default Button;

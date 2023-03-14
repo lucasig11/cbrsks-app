@@ -1,12 +1,24 @@
-import { useCallback, useEffect, useState } from 'react';
-import {useUnityContext} from 'react-unity-webgl'
-import quest from '../../services/quest.service';
+import { useCallback, useEffect, useState } from "react";
+import { useUnityContext } from "react-unity-webgl";
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { VersionedTransaction } from "@solana/web3.js";
+import quest from "../../services/quest.service";
 
-const {VITE_URL_ASSETS_GAME} = import.meta.env
+const { VITE_URL_ASSETS_GAME } = import.meta.env;
 
 const useGame = () => {
-  const [questCompleted, setQuestCompleted] = useState(false)
-  const { unityProvider, requestFullscreen, isLoaded, loadingProgression, addEventListener, removeEventListener } = useUnityContext({
+  const wallet = useWallet();
+  const connection = useConnection();
+  const [questCompleted, setQuestCompleted] = useState(false);
+  const {
+    isLoaded,
+    sendMessage,
+    unityProvider,
+    requestFullscreen,
+    loadingProgression,
+    addEventListener,
+    removeEventListener,
+  } = useUnityContext({
     loaderUrl: `${VITE_URL_ASSETS_GAME}/cys.loader.js`,
     dataUrl: `${VITE_URL_ASSETS_GAME}/cys.data.br`,
     frameworkUrl: `${VITE_URL_ASSETS_GAME}/cys.framework.js.br`,
@@ -14,40 +26,77 @@ const useGame = () => {
     streamingAssetsUrl: `${VITE_URL_ASSETS_GAME}/../StreamingAssets`,
   });
 
+  useEffect(() => {
+    if (wallet?.connected) {
+      sendMessage(
+        "NativeLibrary",
+        "NotifyWalletConnected",
+        wallet.publicKey.toBase58()
+      );
+    }
+  }, [wallet, sendMessage]);
+
+  const handleRequestAirdrop = useCallback(
+    async (rawTx) => {
+      try {
+        if (!wallet.connected) {
+          throw new Error("Wallet not connected.");
+        }
+        const tx = VersionedTransaction.deserialize(rawTx);
+        await wallet.signTransaction(tx);
+        const signature = await wallet.sendTransaction(tx);
+        await connection.confirmTransaction(signature);
+        return signature;
+      } catch (err) {
+        /* eslint-disable-next-line no-console */
+        console.error(err);
+      }
+      return null;
+    },
+    [wallet, connection]
+  );
+
   const handleEnd = useCallback(() => {
     try {
       const time = setTimeout(async () => {
-        const completed = await quest.getPoints()
-        setQuestCompleted(completed)
+        const completed = await quest.getPoints();
+        setQuestCompleted(completed);
       }, 3000);
 
       return () => {
-        clearTimeout(time)
-      }
-    } catch(error) {
-      setQuestCompleted(false)
+        clearTimeout(time);
+      };
+    } catch (error) {
+      setQuestCompleted(false);
     }
-  }, [])
+    return null;
+  }, []);
 
   const goFullscreen = () => {
-    requestFullscreen(true)
-  }
+    requestFullscreen(true);
+  };
 
   useEffect(() => {
-    addEventListener('OnMatchSoloEnded', handleEnd)
-
+    addEventListener("OnMatchSoloEnded", handleEnd);
     return () => {
-      removeEventListener('OnMatchSoloEnded')
-    }
-  }, [addEventListener, removeEventListener, handleEnd])
+      removeEventListener("OnMatchSoloEnded");
+    };
+  }, [addEventListener, removeEventListener, handleEnd]);
+
+  useEffect(() => {
+    addEventListener("OnAirdropRequestResponse", handleRequestAirdrop);
+    return () => {
+      removeEventListener("OnAirdropRequestResponse", handleRequestAirdrop);
+    };
+  }, [addEventListener, removeEventListener, handleRequestAirdrop]);
 
   return {
     unityProvider,
-    goFullscreen, 
+    goFullscreen,
     isLoaded,
     loadingProgression,
-    questCompleted
-  }
-}
+    questCompleted,
+  };
+};
 
-export default useGame
+export default useGame;

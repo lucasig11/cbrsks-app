@@ -1,8 +1,8 @@
 import Title from "../../components/Title"
-import Text from '../../components/Text'
-import Button from '../../components/Button'
-import Select from '../../components/Select'
-import S from './SelectCollection.styles'
+import Text from "../../components/Text"
+import Button from "../../components/Button"
+import Select from "../../components/Select"
+import S from "./SelectCollection.styles"
 
 const SelectCollection = ({collections, saveCollection, active}) => (
   <S.SelectCollection active={active}>

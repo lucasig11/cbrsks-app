@@ -12,6 +12,6 @@ const Base = createGlobalStyle`
     min-width: 320px;
     background-color: var(--color-black-first);
   }
-`
+`;
 
-export default Base
+export default Base;

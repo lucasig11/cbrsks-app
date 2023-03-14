@@ -1,16 +1,16 @@
 const auth = {
   refreshToken: async () => {
-    const url = '/api/auth/discord/refresh'
+    const url = "/api/auth/discord/refresh";
 
     try {
-      const response = await fetch(url)
-      const {status} = await response.json()
+      const response = await fetch(url);
+      const { status } = await response.json();
 
-      return status === 200
-    } catch(error) {
-      return false
+      return status === 200;
+    } catch (error) {
+      return false;
     }
-  }
-}
+  },
+};
 
-export default auth
+export default auth;

@@ -1,16 +1,18 @@
-import {string} from 'prop-types'
-import S from './InfoBox.styles'
+import { string } from "prop-types";
+import S from "./InfoBox.styles";
 
-const InfoBox = ({title, info}) => (
-  <S.InfoBox>
-    <S.Title>{title}</S.Title>
-    <S.Info>{info}</S.Info>
-  </S.InfoBox>
-)
+function InfoBox({ title, info }) {
+  return (
+    <S.InfoBox>
+      <S.Title>{title}</S.Title>
+      <S.Info>{info}</S.Info>
+    </S.InfoBox>
+  );
+}
 
 InfoBox.propTypes = {
   title: string.isRequired,
-  info: string.isRequired
-}
+  info: string.isRequired,
+};
 
-export default InfoBox
+export default InfoBox;

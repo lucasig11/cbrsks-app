@@ -1,5 +1,5 @@
-import styled, {css} from 'styled-components'
-import Button from '../../components/Button'
+import styled, { css } from "styled-components";
+import Button from "../../components/Button";
 
 const FakeForm = styled.div`
   display: flex;
@@ -10,12 +10,12 @@ const FakeForm = styled.div`
   & > ${Button} {
     width: 300px;
   }
-`
+`;
 
-const hasActive = ({active}) => active && css`
+const hasActive = ({ active }) => active && css`
   transform: scale(1);
   opacity: 1;
-`
+`;
 
 const SelectCollection = styled.article`
   position: fixed;
@@ -34,9 +34,9 @@ const SelectCollection = styled.article`
   transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
 
   ${hasActive};
-`
+`;
 
 export default {
   SelectCollection,
-  FakeForm
-}
+  FakeForm,
+};
