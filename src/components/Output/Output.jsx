@@ -1,5 +1,5 @@
 import Icons from "../Icons"
-import S from './Output.styles'
+import S from "./Output.styles"
 
 const Output = ({children, copy=false, handleClick, showTooltip=false}) =>(
   <S.Output>

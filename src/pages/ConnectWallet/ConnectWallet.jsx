@@ -1,31 +1,30 @@
-import InfoBox from '../../components/InfoBox'
-import Title from '../../components/Title'
-import Text from '../../components/Text'
-import { Container, SkipButton } from './ConnectWallet.styles'
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import InfoBox from "../../components/InfoBox";
+import Title from "../../components/Title";
+import Text from "../../components/Text";
+import { Container, SkipButton } from "./ConnectWallet.styles";
 
-const ConnectWallet = () => (
-  <Container>
-    <Title>
-      Connect your wallet to collect grizzly tokens
-    </Title>
+function ConnectWallet() {
+  return (
+    <Container>
+      <Title>Connect your wallet to collect grizzly tokens</Title>
 
-    <Text className="subtitle" light>
-      Special feature for Solana Grizzlython
-    </Text>
+      <Text className="subtitle" light>
+        Special feature for Solana Grizzlython
+      </Text>
 
-    <WalletMultiButton />
+      <WalletMultiButton />
 
-    <SkipButton as="a" href="/game">
-      Skip
-    </SkipButton>
+      <SkipButton as="a" href="/game">
+        Skip
+      </SkipButton>
 
-    <InfoBox
-      title="During Closed Alpha, you may face some bugs."
-      info="We appreciate your feedback."
-    />
-  </Container>
-)
+      <InfoBox
+        title="During Closed Alpha, you may face some bugs."
+        info="We appreciate your feedback."
+      />
+    </Container>
+  );
+}
 
-
-export default ConnectWallet
+export default ConnectWallet;

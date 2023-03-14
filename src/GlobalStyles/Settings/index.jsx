@@ -1,11 +1,13 @@
-import Colors from "./Colors"
-import Gaps from "./Gaps"
+import Colors from "./Colors";
+import Gaps from "./Gaps";
 
-const Settings = () => (
-  <>
-    <Colors />
-    <Gaps />
-  </>
-)
+function Settings() {
+  return (
+    <>
+      <Colors />
+      <Gaps />
+    </>
+  );
+}
 
-export default Settings
+export default Settings;

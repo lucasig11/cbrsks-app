@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components"
+import styled, { css } from "styled-components";
 
-const hasLine = ({line}) => line && css`
+const hasLine = ({ line }) => line && css`
   &::after {
     content: '';
     display: block;
@@ -11,7 +11,7 @@ const hasLine = ({line}) => line && css`
     bottom: 0;
     left: 0;
   }
-`
+`;
 
 const Action = styled.a`
   position: relative;
@@ -26,6 +26,6 @@ const Action = styled.a`
   text-shadow: 0px 0px 28px var(--color-second);
 
   ${hasLine};
-`
+`;
 
-export default Action
+export default Action;

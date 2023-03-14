@@ -1,29 +1,30 @@
-import {useEffect, useState} from 'react'
-import ClipboardJS from "clipboard"
+import { useEffect, useState } from "react";
+import ClipboardJS from "clipboard";
 
 const useOutput = (classToClipboard) => {
-  const [showTooltip, setShowTooltip] = useState(false)
+  const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
-    new ClipboardJS(classToClipboard)
-  }, [])
+    /* eslint-disable-next-line no-new */
+    new ClipboardJS(classToClipboard);
+  }, []);
 
   useEffect(() => {
     const time = setTimeout(() => {
-      setShowTooltip(false)
-    }, 800)
+      setShowTooltip(false);
+    }, 800);
 
-    return () => clearTimeout(time)
-  }, [showTooltip])
+    return () => clearTimeout(time);
+  }, [showTooltip]);
 
   const handleClick = () => {
-    setShowTooltip(true)
-  }
+    setShowTooltip(true);
+  };
 
   return {
     handleClick,
-    showTooltip
-  }
-}
+    showTooltip,
+  };
+};
 
-export default useOutput
+export default useOutput;

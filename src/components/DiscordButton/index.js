@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import discord from '../../assets/images/icons/discord.svg'
+import styled from "styled-components";
+import discord from "../../assets/images/icons/discord.svg";
 
 const DiscordButton = styled.button`
   display: flex;
@@ -27,6 +27,6 @@ const DiscordButton = styled.button`
     box-shadow: 0 8px 15px var(--color-white-light);
     transform: scale(1.01)
   }
-`
+`;
 
-export default DiscordButton
+export default DiscordButton;

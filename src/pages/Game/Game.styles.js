@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import FullscreenButton from "../../components/FullscreenButton"
+import styled from "styled-components";
+import FullscreenButton from "../../components/FullscreenButton";
 
 const Stage = styled.div`
   position: relative;
@@ -10,7 +10,7 @@ const Stage = styled.div`
   & > ${FullscreenButton} {
     align-self: flex-end;
   }
-`
+`;
 
 const Game = styled.main`
   display: flex;
@@ -20,9 +20,9 @@ const Game = styled.main`
   font-size: 4rem;
   height: 100vh;
   gap: 1rem;
-`
+`;
 
 export default {
   Game,
-  Stage
-}
+  Stage,
+};

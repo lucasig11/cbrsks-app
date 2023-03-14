@@ -8,6 +8,6 @@ const Gaps = createGlobalStyle`
     --gap-big: 3.2rem;
     --gap-bigger: 4rem; 
   }
-`
+`;
 
-export default Gaps
+export default Gaps;

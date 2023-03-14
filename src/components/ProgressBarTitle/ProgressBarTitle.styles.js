@@ -1,10 +1,10 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css } from "styled-components";
 
 const Title = styled.h1`
   padding-left: 0.2rem;
-`
+`;
 
-const Value = styled.p``
+const Value = styled.p``;
 
 const Content = styled.dd`
   display: flex;
@@ -12,13 +12,14 @@ const Content = styled.dd`
   font-size: 2.5rem;
   font-weight: bold;
   text-transform: uppercase;
-`
+`;
 
-const hasFill = ({fill}) => fill && css`
-  &::before {
-    transform: scaleX(${fill > 1 ? 1 : fill});
-  }
-`
+const hasFill = ({ fill }) => fill
+  && css`
+    &::before {
+      transform: scaleX(${fill > 1 ? 1 : fill});
+    }
+  `;
 
 const Bar = styled.dd`
   position: relative;
@@ -27,7 +28,7 @@ const Bar = styled.dd`
   height: 0.4rem;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
@@ -38,19 +39,19 @@ const Bar = styled.dd`
   }
 
   ${hasFill}
-`
+`;
 
 const ProgressBarTitle = styled.dl`
   display: flex;
   flex-direction: column;
   width: 100%;
   gap: var(--gap-smaller);
-`
+`;
 
 export default {
   ProgressBarTitle,
   Content,
   Title,
   Value,
-  Bar
-}
+  Bar,
+};

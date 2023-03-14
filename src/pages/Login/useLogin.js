@@ -1,9 +1,7 @@
-const {VITE_URL_OAUTH2_DISCORD} = import.meta.env
+const { VITE_URL_OAUTH2_DISCORD } = import.meta.env;
 
-const useLogin = () => {
-  return {
-    VITE_URL_OAUTH2_DISCORD
-  }
-}
+const useLogin = () => ({
+  VITE_URL_OAUTH2_DISCORD,
+});
 
-export default useLogin
+export default useLogin;

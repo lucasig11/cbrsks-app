@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-const Info = styled.dd``
+const Info = styled.dd``;
 
 const Title = styled.dt`
   font-weight: bold;
-`
+`;
 
 export const InfoBox = styled.dl`
   position: relative;
@@ -25,10 +25,10 @@ export const InfoBox = styled.dl`
     top: var(--gap);
     background-color: var(--color-black-first);
   }
-`
+`;
 
 export default {
   InfoBox,
   Title,
-  Info
-}
+  Info,
+};

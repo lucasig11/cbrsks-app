@@ -21,6 +21,6 @@ const Colors = createGlobalStyle`
     --color-warning: #FF9224;
     --color-warning-light: #FF922447;
   }
-`
+`;
 
-export default Colors
+export default Colors;

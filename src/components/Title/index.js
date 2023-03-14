@@ -1,12 +1,12 @@
-import styled, {css} from "styled-components"
+import styled, { css } from "styled-components";
 
-const hasOrange = ({orange}) => orange && css`
+const hasOrange = ({ orange }) => orange && css`
   color: var(--color-second);
-`
+`;
 
-const hasBigger = ({bigger}) => bigger && css`
+const hasBigger = ({ bigger }) => bigger && css`
   font-size: 9rem;
-`
+`;
 
 const Title = styled.h1`
   font-size: 3.5rem;
@@ -17,6 +17,6 @@ const Title = styled.h1`
 
   ${hasOrange};
   ${hasBigger};
-`
+`;
 
-export default Title
+export default Title;

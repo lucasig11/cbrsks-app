@@ -1,10 +1,10 @@
-import styled from "styled-components"
-import DiscordButton from "../../components/DiscordButton"
-import { InfoBox } from "../../components/InfoBox/InfoBox.styles"
-import Logo from "../../components/Logo"
-import Text from "../../components/Text"
+import styled from "styled-components";
+import DiscordButton from "../../components/DiscordButton";
+import { InfoBox } from "../../components/InfoBox/InfoBox.styles";
+import Logo from "../../components/Logo";
+import Text from "../../components/Text";
 
-const WrapperText = styled.div``
+const WrapperText = styled.div``;
 
 const Login = styled.main`
   display: flex;
@@ -43,9 +43,9 @@ const Login = styled.main`
       border-radius: 0;
     }
   }
-`
+`;
 
 export default {
   Login,
-  WrapperText
-}
+  WrapperText,
+};

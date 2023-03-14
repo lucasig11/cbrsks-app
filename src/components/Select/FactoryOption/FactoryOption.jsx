@@ -1,5 +1,5 @@
-import {useEffect} from 'react'
-import S from '../Select.styles'
+import {useEffect} from "react"
+import S from "../Select.styles"
 
 const FactoryOption = ({options, clickOption, activeOption}) => ( 
   options.map((option, index) => {

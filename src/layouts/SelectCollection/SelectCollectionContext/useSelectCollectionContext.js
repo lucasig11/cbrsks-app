@@ -1,10 +1,10 @@
-import { useContext } from "react"
-import SelectCollectionContext from "./SelectCollectionContext"
+import { useContext } from "react";
+import SelectCollectionContext from "./SelectCollectionContext";
 
 const useSelectCollectionContext = () => {
-  const context = useContext(SelectCollectionContext)
+  const context = useContext(SelectCollectionContext);
 
-  return context
-}
+  return context;
+};
 
-export default useSelectCollectionContext
+export default useSelectCollectionContext;

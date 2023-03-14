@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components"
-import Button from "../../../components/Button"
+import styled, { css } from "styled-components";
+import Button from "../../../components/Button";
 
 const Close = styled.p`
   cursor: pointer;
@@ -11,7 +11,7 @@ const Close = styled.p`
   &:hover {
     opacity: 1;
   }
-`
+`;
 
 const Text = styled.p`
   font-size: 1.5rem;
@@ -30,11 +30,11 @@ const Text = styled.p`
     background-color: var(--color-second);
     color: var(--color-white);
   }
-`
+`;
 
-const hasActive = ({active}) => active && css`
+const hasActive = ({ active }) => active && css`
   transform: scale(1);
-`
+`;
 
 const Title = styled.h1`
   font-family: 'Rajdhani', sans-serif;
@@ -45,7 +45,7 @@ const Title = styled.h1`
   text-align: center;
   font-weight: bold;
   margin-bottom: var(--gap-bigger);
-`
+`;
 
 const Modal = styled.article`
   display: flex;
@@ -70,11 +70,11 @@ const Modal = styled.article`
   }
 
   ${hasActive}
-`
+`;
 
 export default {
   Modal,
   Title,
   Text,
-  Close
-}
+  Close,
+};

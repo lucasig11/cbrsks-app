@@ -1,3 +1,3 @@
 import GameContext from "./GameContex";
 
-export default GameContext
+export default GameContext;

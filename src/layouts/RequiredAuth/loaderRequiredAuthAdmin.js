@@ -1,14 +1,14 @@
-import auth from '../../services/auth.service'
-import user from '../../services/user.service'
+import auth from "../../services/auth.service";
+import user from "../../services/user.service";
 
 const loaderRequireAuthAdmin = async () => {
-  const authorized = await auth.refreshToken()
-  const admin = await user.checkAdmin()
+  const authorized = await auth.refreshToken();
+  const admin = await user.checkAdmin();
 
   return {
     authorized,
-    admin
-  }
-}
+    admin,
+  };
+};
 
-export default loaderRequireAuthAdmin
+export default loaderRequireAuthAdmin;

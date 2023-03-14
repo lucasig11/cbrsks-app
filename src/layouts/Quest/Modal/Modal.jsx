@@ -1,5 +1,5 @@
-import Button from '../../../components/Button'
-import S from './Modal.style'
+import Button from "../../../components/Button"
+import S from "./Modal.style"
 
 const Modal = ({active=false, closeModal}) => (
   <S.Modal active={active}>

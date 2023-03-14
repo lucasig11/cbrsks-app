@@ -1,4 +1,4 @@
-import S from './ProgressBarTitle.styles'
+import S from "./ProgressBarTitle.styles"
 
 const calcPorcentage = (completed, total, countdown) => {
   if (countdown) {
@@ -10,7 +10,7 @@ const calcPorcentage = (completed, total, countdown) => {
     return `${( porcentage >= 100 ? 100 : porcentage).toFixed(2)}%`
   }
 
-  return '0%'
+  return "0%"
 }
 
 const ProgressBarTitle = ({title, completed, total = 100, countdown}) => (

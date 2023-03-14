@@ -1,14 +1,14 @@
-import auth from '../../services/auth.service'
-import user from '../../services/user.service'
+import auth from "../../services/auth.service";
+import user from "../../services/user.service";
 
 const loaderRequireAuth = async () => {
-  const isGuild = await user.checkOnGuild()
-  const authorized = await auth.refreshToken()
+  const isGuild = await user.checkOnGuild();
+  const authorized = await auth.refreshToken();
 
   return {
     authorized,
-    isGuild
-  }
-}
+    isGuild,
+  };
+};
 
-export default loaderRequireAuth
+export default loaderRequireAuth;

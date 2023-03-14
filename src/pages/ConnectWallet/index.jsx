@@ -1,19 +1,14 @@
+import { useWallet } from "@solana/wallet-adapter-react";
+import { Navigate, useLocation } from "react-router-dom";
 import ConnectWallet from "./ConnectWallet";
-import {useEffect} from 'react'
-import {useWallet} from '@solana/wallet-adapter-react'
-import {useNavigate} from "react-router-dom"
 
-export default () => {
+export default function Page() {
   const { connected } = useWallet();
-  const navigate = useNavigate();
+  const location = useLocation();
 
-  useEffect(() => {
-    if (connected) {
-      sendMessage("NativeLibrary", "OnWalletConnected", publicKey.toBase58());
-      navigate('/game')
-    }
-  }, [connected, navigate]);
+  if (connected) {
+    return <Navigate to="/game" state={{ from: location }} replace />;
+  }
 
-  return <ConnectWallet />
+  return <ConnectWallet />;
 }
-  

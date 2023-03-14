@@ -1,3 +1,3 @@
 import RequiredAuth from "./RequiredAuth";
 
-export default RequiredAuth
+export default RequiredAuth;

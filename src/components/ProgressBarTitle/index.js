@@ -1,3 +1,3 @@
 import ProgressBarTitle from "./ProgressBarTitle";
 
-export default ProgressBarTitle
+export default ProgressBarTitle;

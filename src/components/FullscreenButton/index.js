@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import maximize from '../../assets/images/maximize.png'
+import styled from "styled-components";
+import maximize from "../../assets/images/maximize.png";
 
 const FullscreenButton = styled.button`
   width: 4.6rem;
@@ -17,6 +17,6 @@ const FullscreenButton = styled.button`
     transform: scale(1.1);
     box-shadow: 0 8px 15px var(--color-white-light);
   }
-`
+`;
 
-export default FullscreenButton
+export default FullscreenButton;
