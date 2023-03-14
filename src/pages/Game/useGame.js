@@ -42,7 +42,9 @@ const useGame = () => {
         if (!wallet.connected) {
           throw new Error("Wallet not connected.");
         }
-        const tx = VersionedTransaction.deserialize(rawTx);
+        const tx = VersionedTransaction.deserialize(
+          Buffer.from(rawTx, "base64")
+        );
         await wallet.signTransaction(tx);
         const signature = await wallet.sendTransaction(tx);
         await connection.confirmTransaction(signature);
