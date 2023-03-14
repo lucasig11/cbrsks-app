@@ -1,19 +1,29 @@
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { useCallback } from "react";
 import InfoBox from "../../components/InfoBox";
 import Title from "../../components/Title";
 import Text from "../../components/Text";
-import { Container, SkipButton } from "./ConnectWallet.styles";
+import { Container, SkipButton, ConnectButton } from "./ConnectWallet.styles";
+import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 
 function ConnectWallet() {
+  const { setVisible } = useWalletModal();
+
+  const connect = useCallback(() => {
+    setVisible(true);
+  }, [setVisible]);
+
   return (
     <Container>
-      <Title>Connect your wallet to collect grizzly tokens</Title>
+      <Title>
+        Connect your wallet <br />
+        to collect grizzly tokens
+      </Title>
 
       <Text className="subtitle" light>
         Special feature for Solana Grizzlython
       </Text>
 
-      <WalletMultiButton />
+      <ConnectButton onClick={connect}>Connect wallet</ConnectButton>
 
       <SkipButton as="a" href="/game">
         Skip
