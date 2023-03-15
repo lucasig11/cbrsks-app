@@ -28,12 +28,18 @@ const useGame = () => {
 
   useEffect(() => {
     if (wallet?.connected && isLoaded) {
-      sendMessage(
-        "NativeLibrary",
-        "NotifyWalletConnected",
-        wallet.publicKey.toBase58()
-      );
+      function NotifyWalletConnected() {
+        sendMessage(
+          "NativeLibrary",
+          "NotifyWalletConnected",
+          wallet.publicKey.toBase58()
+        );
+      }
       console.log("Wallet connected!");
+
+      NotifyWalletConnected();
+      setTimeout(NotifyWalletConnected, 5000);
+      setTimeout(NotifyWalletConnected, 10000);
     }
   }, [wallet, isLoaded, sendMessage]);
 
