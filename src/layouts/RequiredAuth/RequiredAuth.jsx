@@ -15,7 +15,7 @@ function RequiredAuth({ children }) {
     return <Navigate to="/guild" state={{ from: location }} replace />;
   }
 
-  if (user.authorized && !wallet.connected) {
+  if (user.authorized && user.isGuild && !wallet.connected) {
     return <Navigate to="/wallet" state={{ from: location }} replace />;
   }
 

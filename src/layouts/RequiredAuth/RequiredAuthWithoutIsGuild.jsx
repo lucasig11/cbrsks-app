@@ -4,9 +4,11 @@ function RequiredAuthWithoutIsGuild({ children }) {
   const user = useLoaderData();
   const location = useLocation();
 
-  return user.authorized
-    ? children
-    : <Navigate to="/" state={{ from: location }} replace />;
+  return user.authorized ? (
+    children
+  ) : (
+    <Navigate to="/" state={{ from: location }} replace />
+  );
 }
 
 export default RequiredAuthWithoutIsGuild;
