@@ -28,6 +28,7 @@ const useGame = () => {
 
   useEffect(() => {
     if (wallet?.connected) {
+      console.log("Wallet connected succesfully!");
       sendMessage(
         "NativeLibrary",
         "NotifyWalletConnected",
@@ -39,9 +40,6 @@ const useGame = () => {
   const handleRequestAirdrop = useCallback(
     async (rawTx) => {
       try {
-        if (!wallet.connected) {
-          throw new Error("Wallet not connected.");
-        }
         const tx = VersionedTransaction.deserialize(
           Buffer.from(rawTx, "base64")
         );
