@@ -43,6 +43,7 @@ const useGame = () => {
         const tx = VersionedTransaction.deserialize(
           Buffer.from(rawTx, "base64")
         );
+        console.log("Transaction deserialized.")
         await wallet.signTransaction(tx);
         const signature = await wallet.sendTransaction(tx);
         await connection.confirmTransaction(signature);
