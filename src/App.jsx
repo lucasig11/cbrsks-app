@@ -1,4 +1,7 @@
-import { ConnectionProvider, WalletProvider } from "@solana/wallet-adapter-react";
+import {
+  ConnectionProvider,
+  WalletProvider,
+} from "@solana/wallet-adapter-react";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import {
   GlowWalletAdapter,
@@ -21,22 +24,27 @@ export default function App({ children }) {
   const network = import.meta.env.VITE_SOLANA_NETWORK;
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
-  const wallets = useMemo(() => [
-    new GlowWalletAdapter(),
-    new SlopeWalletAdapter(),
-    new SolflareWalletAdapter({ network }),
-    new TorusWalletAdapter(),
-    new LedgerWalletAdapter(),
-    new SolletExtensionWalletAdapter(),
-    new SolletWalletAdapter(),
-  ], [network]);
+  const wallets = useMemo(
+    () => [
+      new GlowWalletAdapter(),
+      new SlopeWalletAdapter(),
+      new SolflareWalletAdapter({ network }),
+      new TorusWalletAdapter(),
+      new LedgerWalletAdapter(),
+      new SolletExtensionWalletAdapter(),
+      new SolletWalletAdapter(),
+    ],
+    [network]
+  );
 
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           <GlobalStyles />
+
           <RouterProvider router={router} />
+
           {children}
         </WalletModalProvider>
       </WalletProvider>
