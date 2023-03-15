@@ -27,15 +27,15 @@ const useGame = () => {
   });
 
   useEffect(() => {
-    if (wallet?.connected) {
-      console.log("Wallet connected succesfully!");
+    if (wallet?.connected && isLoaded) {
       sendMessage(
         "NativeLibrary",
         "NotifyWalletConnected",
         wallet.publicKey.toBase58()
       );
+      console.log("Wallet connected!");
     }
-  }, [wallet, sendMessage]);
+  }, [wallet, isLoaded, sendMessage]);
 
   const handleRequestAirdrop = useCallback(
     async (rawTx) => {
