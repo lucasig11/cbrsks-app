@@ -3,6 +3,7 @@ import { useUnityContext } from "react-unity-webgl";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { VersionedTransaction } from "@solana/web3.js";
 import quest from "../../services/quest.service";
+import airdrop from "../../services/airdrop.service";
 
 const { VITE_URL_ASSETS_GAME } = import.meta.env;
 
@@ -12,7 +13,6 @@ const useGame = () => {
   const [questCompleted, setQuestCompleted] = useState(false);
   const {
     isLoaded,
-    sendMessage,
     unityProvider,
     requestFullscreen,
     loadingProgression,
@@ -26,33 +26,29 @@ const useGame = () => {
     streamingAssetsUrl: `${VITE_URL_ASSETS_GAME}/../StreamingAssets`,
   });
 
-  useEffect(() => {
-    if (wallet?.connected && isLoaded) {
-      function NotifyWalletConnected() {
-        sendMessage(
-          "NativeLibrary",
-          "NotifyWalletConnected",
-          wallet.publicKey.toBase58()
-        );
-      }
-      console.log("Wallet connected!");
-
-      NotifyWalletConnected();
-      setTimeout(NotifyWalletConnected, 5000);
-      setTimeout(NotifyWalletConnected, 10000);
-    }
-  }, [wallet, isLoaded, sendMessage]);
-
   const handleRequestAirdrop = useCallback(
-    async (rawTx) => {
+    async (coins) => {
       try {
+        const rawTx = await airdrop.requestAirdrop(wallet, coins);
+        if (!rawTx) {
+          throw new Error("Airdrop request failed.");
+        }
+
         const tx = VersionedTransaction.deserialize(
           Buffer.from(rawTx, "base64")
         );
-        console.log("Transaction deserialized.")
-        await wallet.signTransaction(tx);
+        console.log("Transaction succesfully deserialized.");
+
         const signature = await wallet.sendTransaction(tx);
-        await connection.confirmTransaction(signature);
+        const { blockhash, lastValidBlockHeight } =
+          await connection.getLatestBlockhash();
+
+        await connection.confirmTransaction({
+          blockhash,
+          lastValidBlockHeight,
+          signature,
+        });
+
         return signature;
       } catch (err) {
         /* eslint-disable-next-line no-console */
