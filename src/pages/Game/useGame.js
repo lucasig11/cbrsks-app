@@ -16,6 +16,7 @@ const useGame = () => {
     unityProvider,
     requestFullscreen,
     loadingProgression,
+    sendMessage,
     addEventListener,
     removeEventListener,
   } = useUnityContext({
@@ -49,6 +50,8 @@ const useGame = () => {
           signature,
         });
 
+        sendMessage("Grizzlython", "ResetUnclaimedCoinsCount", "");
+
         return signature;
       } catch (err) {
         /* eslint-disable-next-line no-console */
@@ -56,7 +59,7 @@ const useGame = () => {
       }
       return null;
     },
-    [wallet, connection]
+    [wallet, connection, sendMessage]
   );
 
   const handleEnd = useCallback(() => {
@@ -87,9 +90,9 @@ const useGame = () => {
   }, [addEventListener, removeEventListener, handleEnd]);
 
   useEffect(() => {
-    addEventListener("OnAirdropRequestResponse", handleRequestAirdrop);
+    addEventListener("OnClaimTokensButtonClicked", handleRequestAirdrop);
     return () => {
-      removeEventListener("OnAirdropRequestResponse", handleRequestAirdrop);
+      removeEventListener("OnClaimTokensButtonClicked", handleRequestAirdrop);
     };
   }, [addEventListener, removeEventListener, handleRequestAirdrop]);
 
