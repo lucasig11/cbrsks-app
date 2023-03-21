@@ -39,7 +39,7 @@ export default function App({ children }) {
 
   return (
     <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets}>
+      <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>
           <GlobalStyles />
 
