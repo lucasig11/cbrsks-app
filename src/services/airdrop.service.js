@@ -17,10 +17,9 @@ const airdrop = {
       if (response.status !== 200) {
         return false;
       }
-
       return rawTx;
     } catch (error) {
-      return false;
+      throw error;
     }
   },
 };
