@@ -30,10 +30,10 @@ const useGame = () => {
   const handleRequestAirdrop = useCallback(
     async (coins) => {
       try {
-        const rawTx = await airdrop.requestAirdrop(wallet, coins);
-        if (!rawTx) {
-          throw new Error("Airdrop request failed.");
-        }
+        if (!wallet.publicKey) throw new Error("Wallet not connected.");
+
+        const rawTx = await airdrop.requestAirdrop(wallet.publicKey, coins);
+        if (!rawTx) throw new Error("Airdrop request failed.");
 
         const tx = VersionedTransaction.deserialize(
           Buffer.from(rawTx, "base64")
