@@ -40,10 +40,9 @@ const useGame = () => {
         );
         console.log("Transaction succesfully deserialized.");
 
-        const signature = await wallet.sendTransaction(tx);
+        const signature = await wallet.sendTransaction(tx, connection);
         const { blockhash, lastValidBlockHeight } =
           await connection.getLatestBlockhash();
-
         await connection.confirmTransaction({
           blockhash,
           lastValidBlockHeight,
