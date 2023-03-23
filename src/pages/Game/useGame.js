@@ -43,23 +43,20 @@ const useGame = () => {
         const tx = VersionedTransaction.deserialize(
           Buffer.from(rawTx, "base64")
         );
-        const signature = await wallet.sendTransaction(tx, connection);
-        const { blockhash, lastValidBlockHeight } =
-          await connection.getLatestBlockhash();
-        await connection.confirmTransaction({
-          blockhash,
-          lastValidBlockHeight,
-          signature,
-        });
+        await wallet.sendTransaction(tx, connection);
 
+        // const { blockhash, lastValidBlockHeight } =
+        //   await connection.getLatestBlockhash();
+        // await connection.confirmTransaction({
+        //   blockhash,
+        //   lastValidBlockHeight,
+        //   signature,
+        // });
         sendMessage("Grizzlython", "ResetUnclaimedCoinsCount", "");
-
-        return signature;
       } catch (err) {
         /* eslint-disable-next-line no-console */
         console.error(err);
       }
-      return null;
     },
     [wallet, connection, sendMessage]
   );
