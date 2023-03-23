@@ -9,7 +9,7 @@ const { VITE_URL_ASSETS_GAME } = import.meta.env;
 
 const useGame = () => {
   const wallet = useWallet();
-  const connection = useConnection();
+  const { connection } = useConnection();
   const [questCompleted, setQuestCompleted] = useState(false);
   const {
     isLoaded,
