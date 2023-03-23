@@ -32,14 +32,18 @@ const useGame = () => {
       try {
         if (!wallet.publicKey) throw new Error("Wallet not connected.");
 
-        const rawTx = await airdrop.requestAirdrop(wallet.publicKey, coins);
+        const rawTx = await airdrop.requestAirdrop(
+          wallet.publicKey,
+          // account for decimals, so we get the correct amount of tokens
+          // 1e2 = 100 (2 decimals)
+          coins * 1e2
+        );
         if (!rawTx) throw new Error("Airdrop request failed.");
 
         const tx = VersionedTransaction.deserialize(
           Buffer.from(rawTx, "base64")
         );
-        const signedTx = await wallet.signTransaction(tx);
-        const signature = await wallet.sendTransaction(signedTx, connection);
+        const signature = await wallet.sendTransaction(tx, connection);
         const { blockhash, lastValidBlockHeight } =
           await connection.getLatestBlockhash();
         await connection.confirmTransaction({
